@@ -1,0 +1,9 @@
+job_id,job_title,description,required_skill_ids
+J01,Data Analyst,Analyzes datasets and creates reports and dashboards.,S01;S02;S05;S06;S07
+J02,Data Scientist,Uses statistics and machine learning to solve data problems.,S01;S02;S03;S05;S07;S08;S14;S15
+J03,Machine Learning Engineer,Develops and deploys machine learning models into production.,S01;S03;S04;S08;S14;S15;S12;S13;S18
+J04,Deep Learning Engineer,Builds and optimizes deep neural network models.,S01;S04;S08;S09;S15;S16
+J05,NLP Engineer,Develops applications that process and understand human language.,S01;S08;S09;S10;S16;S20
+J06,Computer Vision Engineer,Develops systems that understand images and videos.,S01;S08;S09;S11;S16
+J07,AI Application Developer,Builds AI-powered applications using APIs and language models.,S01;S10;S13;S18;S20
+J08,MLOps Engineer,"Manages the deployment, monitoring, and infrastructure of ML systems.",S01;S08;S12;S13;S18;S19

@@ -1,0 +1,13 @@
+course_id,course_name,difficulty,description,skill_ids
+C01,Python Fundamentals,Beginner,"Learn Python syntax, data types, functions, and programming basics.",S01
+C02,SQL for Data Science,Beginner,"Learn SQL queries, joins, filtering, and database operations.",S02
+C03,Statistics for Data Science,Beginner,"Learn probability, distributions, descriptive statistics, and hypothesis testing.",S03
+C04,Linear Algebra for AI,Intermediate,"Learn vectors, matrices, matrix operations, and transformations.",S04
+C05,Data Analysis with Python,Intermediate,"Clean datasets, perform exploratory analysis, and create visualizations.",S01;S05;S06;S07
+C06,Machine Learning Fundamentals,Intermediate,"Learn supervised learning, unsupervised learning, and model evaluation.",S08;S14;S15
+C07,Deep Learning with PyTorch,Advanced,Build and train neural networks using PyTorch.,S09;S16
+C08,Deep Learning with TensorFlow,Advanced,Build neural networks and deep learning applications using TensorFlow.,S09;S17
+C09,Natural Language Processing,Advanced,"Learn text preprocessing, text classification, embeddings, and NLP techniques.",S10
+C10,Computer Vision Fundamentals,Advanced,"Learn image processing, image classification, and computer vision models.",S11
+C11,Software Engineering for AI,Intermediate,"Learn version control, APIs, Docker, and software deployment fundamentals.",S12;S13;S18
+C12,Building RAG Applications,Advanced,Build retrieval-augmented generation applications using vector search and LLMs.,S10;S13;S20

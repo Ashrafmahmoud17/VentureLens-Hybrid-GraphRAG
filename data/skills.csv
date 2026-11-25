@@ -1,0 +1,21 @@
+skill_id,skill_name,category,description
+S01,Python,Programming,"A programming language widely used in AI, machine learning, and data science."
+S02,SQL,Database,"A language used to query, manage, and manipulate relational databases."
+S03,Statistics,Mathematics,"Statistical concepts including probability, distributions, and hypothesis testing."
+S04,Linear Algebra,Mathematics,"Mathematical concepts involving vectors, matrices, and linear transformations."
+S05,Data Cleaning,Data Science,"Preparing datasets by handling missing values, duplicates, and inconsistent data."
+S06,Data Visualization,Data Science,"Representing data visually using charts, plots, and dashboards."
+S07,Exploratory Data Analysis,Data Science,"Analyzing datasets to discover patterns, trends, and relationships."
+S08,Machine Learning,AI,Algorithms that learn patterns from data to make predictions or decisions.
+S09,Deep Learning,AI,Machine learning methods based on multi-layer artificial neural networks.
+S10,Natural Language Processing,AI,"Techniques for processing, understanding, and generating human language."
+S11,Computer Vision,AI,Techniques that enable computers to understand and analyze images and videos.
+S12,Git,Software Engineering,A version control system used to track and manage source code changes.
+S13,APIs,Software Engineering,Interfaces that allow software applications to communicate with each other.
+S14,Feature Engineering,Data Science,Creating and transforming input features to improve machine learning models.
+S15,Model Evaluation,Machine Learning,Measuring model performance using metrics and validation techniques.
+S16,PyTorch,Deep Learning,A deep learning framework used to build and train neural networks.
+S17,TensorFlow,Deep Learning,A framework for developing and deploying machine learning models.
+S18,Docker,DevOps,A platform for packaging applications and their dependencies into containers.
+S19,Cloud Computing,Cloud,"Using remote computing resources such as servers, storage, and managed services."
+S20,Retrieval-Augmented Generation,Generative AI,A technique that combines information retrieval with language model generation.

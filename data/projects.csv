@@ -1,0 +1,11 @@
+project_id,project_name,difficulty,description,skill_ids
+P01,Sales Dashboard,Beginner,Build an interactive dashboard to analyze business sales and revenue.,S01;S02;S05;S06;S07
+P02,Customer Churn Prediction,Intermediate,Predict which customers are likely to leave a subscription service.,S01;S03;S08;S14;S15
+P03,House Price Prediction,Beginner,Build a regression model to estimate house prices using property features.,S01;S03;S08;S14;S15
+P04,Sentiment Analysis,Intermediate,"Classify text reviews into positive, negative, or neutral sentiments.",S01;S08;S10;S16
+P05,Image Classification,Advanced,Train a neural network to classify images into different categories.,S01;S09;S11;S16
+P06,Recommendation System,Intermediate,Recommend products or movies based on user preferences and behavior.,S01;S08;S14;S15
+P07,Fraud Detection System,Advanced,Detect suspicious financial transactions using machine learning.,S01;S02;S03;S08;S14;S15
+P08,RAG Document Assistant,Advanced,Build an AI assistant that answers questions using external documents.,S01;S10;S13;S20
+P09,Sales Forecasting,Intermediate,Predict future sales using historical time-series data.,S01;S03;S08;S15
+P10,ML Model Deployment API,Advanced,Deploy a trained machine learning model through an API and Docker.,S01;S08;S12;S13;S18
