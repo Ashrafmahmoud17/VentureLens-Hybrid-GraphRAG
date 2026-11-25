@@ -8,7 +8,7 @@ The existing local SentenceTransformer model and Chroma collection are reused.
 """
 
 from __future__ import annotations
-
+import shutil
 import argparse
 import os
 import re
@@ -27,7 +27,16 @@ NEO4J_USERNAME = os.getenv("NEO4J_USERNAME")
 NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD")
 NEO4J_DATABASE = os.getenv("NEO4J_DATABASE", "neo4j")
 
-CHROMA_PATH = BASE_DIR / "chroma_db"
+RAILWAY_VOLUME_MOUNT_PATH = os.getenv("RAILWAY_VOLUME_MOUNT_PATH")
+
+if RAILWAY_VOLUME_MOUNT_PATH:
+    DEFAULT_CHROMA_PATH = Path(RAILWAY_VOLUME_MOUNT_PATH) / "chroma_db"
+else:
+    DEFAULT_CHROMA_PATH = BASE_DIR / "chroma_db"
+
+CHROMA_PATH = Path(
+    os.getenv("CHROMA_PATH", str(DEFAULT_CHROMA_PATH))
+)
 COLLECTION_NAME = "skillbridge_embeddings"
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
 GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
@@ -69,24 +78,52 @@ def _get_driver():
 
 def _get_collection():
     global _chroma_collection
+
     if _chroma_collection is None:
         import chromadb
+
+        # Original database committed to the repository.
+        source_path = BASE_DIR / "chroma_db"
+
+        # On Railway, seed the persistent volume on first startup.
+        if RAILWAY_VOLUME_MOUNT_PATH:
+            database_file = CHROMA_PATH / "chroma.sqlite3"
+
+            if not database_file.exists():
+                if not (source_path / "chroma.sqlite3").exists():
+                    raise RuntimeError(
+                        f"Original Chroma database was not found at {source_path}"
+                    )
+
+                CHROMA_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+                shutil.copytree(
+                    source_path,
+                    CHROMA_PATH,
+                    dirs_exist_ok=True,
+                )
+
+                print(f"Chroma database initialized at {CHROMA_PATH}")
 
         if not CHROMA_PATH.exists():
             raise RuntimeError(
                 f"Chroma database was not found at {CHROMA_PATH}. "
-                "Run the existing embedding builder first: python src/embedding_builder.py"
+                "Check CHROMA_PATH or the Railway Volume configuration."
             )
+
         client = chromadb.PersistentClient(path=str(CHROMA_PATH))
+
         try:
-            _chroma_collection = client.get_collection(name=COLLECTION_NAME)
+            _chroma_collection = client.get_collection(
+                name=COLLECTION_NAME
+            )
         except Exception as exc:
             raise RuntimeError(
-                f"Chroma collection '{COLLECTION_NAME}' was not found. "
-                "Run the existing embedding builder first: python src/embedding_builder.py"
+                f"Chroma collection '{COLLECTION_NAME}' was not found "
+                f"at {CHROMA_PATH}."
             ) from exc
-    return _chroma_collection
 
+    return _chroma_collection
 
 def _get_model():
     global _model
